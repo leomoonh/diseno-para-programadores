@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Curso Vue Archivo 1</title>
+  </head>
+  <body>
+  <div id="app" v-if="mostrar">
+    <h1  > Titulo </h1>
+    <h2  > Subtitulo </h2>
+    <a :href="url" target="_blank"> Ir a {{ pagina  }}</a>
+  <div>
+    <script src="../../src/vue.js"></script>
+    <script type="text/javascript">
+        let app = new Vue(
+        {
+          el:'#app',
+          data:
+          {
+            url: 'https://vuejs.org',
+            pagina: 'Vuejs !!! ',
+            mostrar: true
+          }
+        })
+    </script>
+  </body>
+</html>

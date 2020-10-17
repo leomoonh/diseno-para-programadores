@@ -1,20 +1,24 @@
-# Diseño para programadores.
-Bienvenido al curso de diseño para programadores. En este repositorio
-encontrarás el material del curso diseño para programadores.
+# diseno-para-programadores
 
-## Brief.
-En la carpeta brief encontrarás el ejemplo de brief que vimos en clase,
-úsalo como inspiración para crear el brief de tu proyecto.
+## Project setup
+```
+npm install
+```
 
-## User flows.
-En la carpeta user flows encontrarás el ejemplo de site map que creamos
-en clase y también el ejemplo de user flow para realizar un pedido.
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-## Wireframes.
-En la carpeta wireframes encontrarás el ejemplo de wireframes que creamos
-para la aplicación de nuestro curso.
+### Compiles and minifies for production
+```
+npm run build
+```
 
-## App.
-En la carpeta App encontrarás la aplicación en React.js que creamos para
-la aplicación de nuestro curso. Si necesitas más información sobre el
-código puedes encontrarla en el README.md dentro de esa carpeta.
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
