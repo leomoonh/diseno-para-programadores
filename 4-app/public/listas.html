@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Curso Vue Archivo 1</title>
+</head>
+<body>
+<div id="app">
+
+    <form @submit.prevent="submit()" method="get" >
+        <h2> Elije colores ... </h2><br />
+        <input v-model="colores" type="checkbox" id="rojo" value="1">
+        <label for="rojo"> Rojo </label>
+        <input v-model="colores" type="checkbox" id="amarillo" value="2">
+        <label for="amarillo"> Amarillo </label>
+        <input v-model="colores" type="checkbox" id="verde" value="3">
+        <label for="verde"> Verde </label>
+        <input v-model="colores" type="checkbox" id="azul" value="4">
+        <label for="azul"> Azul</label>
+        <button type="submit"> Enviar </button>
+    </form>
+</div>
+<script src="../../src/vue.js"></script>
+<script type="text/javascript">
+    let app = new Vue(
+        {
+            el:'#app',
+            data:
+                {
+                    nombre : '',
+                    colores : []
+                },
+            filters:
+                {
+                    uppercase : function (str) { return str.toUpperCase(); }
+                },
+            methods:
+                {
+                    submit: function ()
+                    {
+                        console.log('se ejecuta el metodo submit')
+                        console.log(this.colores)
+                    }
+                }
+        })
+</script>
+</body>
+</html>
+</html>
