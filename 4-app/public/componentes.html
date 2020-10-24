@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Curso Vue Archivo Componentes</title>
+</head>
+<body>
+<div id="app">
+    <form @submit.prevent="submit()" method="get" >
+        <h2> Elije colores ... </h2><br />
+        <template v-for="color in colores">
+            <color :color="color"  @checked="selectColor" ></color>
+        </template>
+        <button type="submit"> Enviar </button>
+    </form>
+</div>
+<script src="../../src/vue.js"></script>
+<script type="text/javascript">
+    Vue.component('color',{
+        props : ['color'],
+        methods: {
+            onchange : function (ev) {
+                this.$emit('checked',this.color.value,ev.target.checked)
+            }
+        },
+        template : '<div> <input type="checkbox" :id="color.nombre" :value="color.value" @change="onchange">'+
+            '<label :for="color.value"> {{ color.nombre }} </label> </div>'})
+    let app = new Vue(
+        {
+            el:'#app',
+            data:
+                {
+                    colores : [{ nombre:'Rojo', value:'1'},
+                        { nombre:'Amarillo', value:'2'},
+                        { nombre:'Verde ', value:'3'},
+                        { nombre:'Azul', value:'4'}],
+                    coloresSeleccionados: []
+                },
+            methods:
+                {
+                    submit: function ()
+                    {
+                        console.log('se ejecuta el metodo submit')
+                        console.log(this.coloresSeleccionados)
+                    },
+                    selectColor: function (color, checked)
+                    {
+                        if (checked) {
+                          this.coloresSeleccionados.push(color)
+                        }
+                        else
+                        {
+                          let index = this.coloresSeleccionados.indexOf(color)
+                          this.coloresSeleccionados.splice(index, 1)
+                        }
+                    }
+                }
+        })
+</script>
+</body>
+</html>

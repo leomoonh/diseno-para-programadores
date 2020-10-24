@@ -5,17 +5,12 @@
 </head>
 <body>
 <div id="app">
-
     <form @submit.prevent="submit()" method="get" >
         <h2> Elije colores ... </h2><br />
-        <input v-model="colores" type="checkbox" id="rojo" value="1">
-        <label for="rojo"> Rojo </label>
-        <input v-model="colores" type="checkbox" id="amarillo" value="2">
-        <label for="amarillo"> Amarillo </label>
-        <input v-model="colores" type="checkbox" id="verde" value="3">
-        <label for="verde"> Verde </label>
-        <input v-model="colores" type="checkbox" id="azul" value="4">
-        <label for="azul"> Azul</label>
+        <template v-for="color in colores" >
+            <input v-model="coloresSeleccionados" type="checkbox" :id="color.nombre" :value="color.value">
+            <label :for="color.value"> {{ color.nombre }} </label>
+        </template>
         <button type="submit"> Enviar </button>
     </form>
 </div>
@@ -26,23 +21,21 @@
             el:'#app',
             data:
                 {
-                    nombre : '',
-                    colores : []
-                },
-            filters:
-                {
-                    uppercase : function (str) { return str.toUpperCase(); }
+                    colores : [{ nombre:'Rojo', value:'1'},
+                        { nombre:'Amarillo', value:'2'},
+                        { nombre:'Verde ', value:'3'},
+                        { nombre:'Azul', value:'4'}],
+                    coloresSeleccionados : []
                 },
             methods:
                 {
                     submit: function ()
                     {
                         console.log('se ejecuta el metodo submit')
-                        console.log(this.colores)
+                        console.log(this.coloresSeleccionados)
                     }
                 }
         })
 </script>
 </body>
-</html>
 </html>
